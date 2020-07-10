@@ -1,4 +1,10 @@
-
+#debuger var and parameter
+#-g put debuging symbols during compilation
+CXX_DEBUG_FLAGS := -g
+#don't let optimization change the program so we can debug it 
+CXX_DEBUG_FLAGS += -Og
+CXX_DEBUG_FLAGS += -Wall
+EXC_DEBUG_NAME := testDebug.exe
 #compiler parameters
 # -O iS the optimization level
 #level 0 - 1- 2- 3 - s(size) - g(debugging) - fast
@@ -17,8 +23,8 @@ CXXFLAG += -w
 #Compiler variable
 CC := g++
 #source file list
-SRC_LST := ./test.c
-SRC_LST += ./help.c
+SRC_LST := ./test.cpp
+SRC_LST += ./help.cpp
 #excutable name
 EXC_NAME := test.exe
 print_msg:
@@ -35,4 +41,8 @@ clean:
 run: clean build
 	@echo "---------run-------------"
 	@./$(EXC_NAME)
-
+debug:
+	@$(CC) $(CXX_DEBUG_FLAGS) $(SRC_LST) -o $(EXC_DEBUG_NAME)
+	@size $(EXC_DEBUG_NAME) 
+#size --format=sysv test.exe
+#gdb : gdb testDebug.exe run step continue
