@@ -1,4 +1,8 @@
 #include <iostream>
+void hello_asd(void)
+{
+    
+}
 void hello_america(void)
 {
     
