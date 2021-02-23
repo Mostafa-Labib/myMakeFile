@@ -2,6 +2,12 @@
 #include <iostream>
 using namespace std;
 #include "help.hpp"
+int x = 10;
+int y = 20;
+void trytry(void)
+{
+    
+}
 int main()
 {        
     int sum = 0;
